@@ -7,43 +7,8 @@
 </head>
 <body>
   <h1>Fetch Services</h1>
-  <form id="serviceForm">
-    <label>
-      User ID:<br />
-      <input type="text" name="userId" required />
-    </label>
-    <br /><br />
-    <label>
-      Username:<br />
-      <input type="text" name="username" required />
-    </label>
-    <br /><br />
-    <label>
-      Request:<br />
-      <textarea name="request" rows="4" cols="30" required></textarea>
-    </label>
-    <br /><br />
-    <button type="submit">Send Request</button>
-  </form>
-
-  <script>
-    const form = document.getElementById("serviceForm");
-    const apiUrl = "https://fetchserviceworker.cmax8972.workers.dev/";
-
-    form.addEventListener("submit", (e) => {
-      e.preventDefault();
-
-      const formData = new FormData(form);
-
-      fetch(apiUrl, {
-        method: "POST",
-        headers: {
-          "User-ID": formData.get("userId"),
-          "Username": formData.get("username"),
-          "Request": formData.get("request"),
-        },
-      });
-    });
-  </script>
+  <h2>cool guy services get stuff made for u haha skid</h2>
+  
+  <a href="/request_a_script.html">Request a Script</a>
 </body>
 </html>
