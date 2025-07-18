@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Fetch Services</title>
+</head>
+<body>
+  <h1>Fetch Services</h1>
+  <form id="serviceForm">
+    <label>
+      User ID:<br />
+      <input type="text" name="userId" required />
+    </label>
+    <br /><br />
+    <label>
+      Username:<br />
+      <input type="text" name="username" required />
+    </label>
+    <br /><br />
+    <label>
+      Request:<br />
+      <textarea name="request" rows="4" cols="30" required></textarea>
+    </label>
+    <br /><br />
+    <button type="submit">Send Request</button>
+  </form>
+
+  <p id="responseMsg"></p>
+
+  <script>
+    const form = document.getElementById("serviceForm");
+    const responseMsg = document.getElementById("responseMsg");
+    const apiUrl = "https://fetchserviceworker.cmax8972.workers.dev/";
+
+    form.addEventListener("submit", async (e) => {
+      e.preventDefault();
+
+      const formData = new FormData(form);
+
+      try {
+        const res = await fetch(apiUrl, {
+          method: "GET",
+          headers: {
+            "User-ID": formData.get("userId"),
+            "Username": formData.get("username"),
+            "Request": formData.get("request"),
+          },
+        });
+
+        if (res.ok) {
+          responseMsg.textContent = "Request send to fetch, will be under review shortly. expect a dm request/ friend request";
+          responseMsg.style.color = "green";
+        } else {
+          responseMsg.textContent = "Failed to send request";
+          responseMsg.style.color = "red";
+        }
+      } catch (err) {
+        responseMsg.textContent = "Error: " + err.message;
+        responseMsg.style.color = "red";
+      }
+    });
+  </script>
+</body>
+</html>
