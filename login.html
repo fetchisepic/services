@@ -15,8 +15,10 @@
     const urlParams = new URLSearchParams(window.location.search);
     const code = urlParams.get('code');
 
-    if (code) {
-      window.location.href = "page1.html";
+     if (code) {
+      localStorage.setItem('authenticated', 'true');
+      window.location.href = "https://fetchisepic.github.io/services/page1.html";
+    }
     } else {
       const contentDiv = document.getElementById('content');
       const loginBtn = document.createElement('a');
