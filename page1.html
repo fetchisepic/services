@@ -19,10 +19,10 @@
   <h2>the pass for p0ly is 12445678</h2>
 
   <script>
-    const allowedReferrer = "https://fetchisepic.github.io/services/index.html";
+    const allowedReferrerBase = "https://fetchisepic.github.io/services/";
 
-    if (document.referrer !== allowedReferrer) {
-      window.location.href = allowedReferrer;
+    if (!document.referrer.startsWith(allowedReferrerBase)) {
+      window.location.href = allowedReferrerBase;
     }
   </script>
 </body>
