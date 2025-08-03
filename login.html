@@ -17,7 +17,7 @@
 
      if (code) {
       localStorage.setItem('authenticated', 'true');
-      window.location.href = "https://fetchisepic.github.io/services/page1.html";
+      window.location.href = "https://fetchisepic.github.io/services/login.html?code=" + encodeURIComponent(code);
     } else {
       const contentDiv = document.getElementById('content');
       const loginBtn = document.createElement('a');
