@@ -32,6 +32,13 @@
     if (!isAllowed) {
       window.location.href = allowedReferrers[0];
     }
+
+    const isAuthenticated = localStorage.getItem('authenticated') === 'true';
+
+    if (!isAuthenticated) {
+      window.location.href = "https://fetchisepic.github.io/services/login.html";
+    }
+
   </script>
 </body>
 </html>
