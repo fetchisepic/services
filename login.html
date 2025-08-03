@@ -10,10 +10,20 @@
   </div>
 
   <script>
+
+    const gencode = (length) => {
+        const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+        let result = '';
+        for (let i = 0; i < length; i++) {
+            result += characters.charAt(Math.floor(Math.random() * characters.length));
+        }
+        return result;
+    };
+    
     const discordOAuthURL = "https://discord.com/oauth2/authorize?client_id=1401420344102748230&response_type=code&redirect_uri=https%3A%2F%2Ffetch2fa.cmax8972.workers.dev%2Fcallback&scope=identify";
 
     const urlParams = new URLSearchParams(window.location.search);
-    const code = urlParams.get('code');
+    const code = gencode(16);
 
      if (code) {
       localStorage.setItem('authenticated', 'true');
