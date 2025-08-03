@@ -3,17 +3,39 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Fetch Services</title>
+  <title>login</title>
 </head>
 <body>
-  <h1>Fetch Services</h1>
-  <h2>cool guy services get stuff made for u haha skid</h2>
-  <a href="https://fetchisepic.github.io/services/request_a_script.html">Request a Script</a>
-  <h1>
+  <div id="content" style="text-align:center; margin-top: 100px;">
+  </div>
 
-  !! also check out P0ly and NORTH - https://www.p0ly.org/, https://discord.gg/rzbqSPBqQD !!
-    
-  </h1>
-  <h2>the pass for p0ly is 12445678</h2>
+  <script>
+    const discordOAuthURL = "https://discord.com/oauth2/authorize?client_id=1401420344102748230&response_type=code&redirect_uri=https%3A%2F%2Ffetch2fa.cmax8972.workers.dev%2Fcallback&scope=identify";
+
+    const urlParams = new URLSearchParams(window.location.search);
+    const code = urlParams.get('code');
+
+    if (code) {
+      window.location.href = "page1.html";
+    } else {
+      const contentDiv = document.getElementById('content');
+      const loginBtn = document.createElement('a');
+      loginBtn.href = discordOAuthURL;
+      loginBtn.textContent = "login with discord";
+      loginBtn.style = `
+        display: inline-block;
+        padding: 12px 24px;
+        font-size: 18px;
+        font-weight: bold;
+        color: white;
+        background-color: #5865F2;
+        border-radius: 6px;
+        text-decoration: none;
+        font-family: Arial, sans-serif;
+        cursor: pointer;
+      `;
+      contentDiv.appendChild(loginBtn);
+    }
+  </script>
 </body>
 </html>
